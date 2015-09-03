@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8173.3" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HighLightingDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,82 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="la2a_front_hq" translatesAutoresizingMaskIntoConstraints="NO" id="U6P-gl-C20" userLabel="myObjectView">
+                                <rect key="frame" x="96" y="75" width="408" height="269"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="269" id="w0H-Py-hKA"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="w0H-Py-hKA"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact" ambiguous="YES">
+                                    <rect key="frame" x="96" y="20" width="208" height="269"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="w0H-Py-hKA"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNQ-IZ-NAF">
+                                <rect key="frame" x="277" y="397" width="62" height="30"/>
+                                <state key="normal" title="Highlight"/>
+                                <variation key="widthClass=compact" ambiguous="YES">
+                                    <rect key="frame" x="96" y="297" width="208" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="myActionButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a2d-Hn-VKs"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hNQ-IZ-NAF" secondAttribute="bottom" constant="273" id="5LS-EH-EwT"/>
+                            <constraint firstItem="U6P-gl-C20" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="7c0-Hq-fGK"/>
+                            <constraint firstItem="hNQ-IZ-NAF" firstAttribute="top" secondItem="U6P-gl-C20" secondAttribute="bottom" constant="8" id="DDc-VX-Van"/>
+                            <constraint firstItem="U6P-gl-C20" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="76" id="ONx-V0-C3p"/>
+                            <constraint firstItem="hNQ-IZ-NAF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="76" id="SX2-pC-RfD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hNQ-IZ-NAF" secondAttribute="trailing" constant="76" id="gam-ya-4mn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="U6P-gl-C20" secondAttribute="trailing" constant="76" id="i0A-rd-xLu"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="7c0-Hq-fGK"/>
+                                <exclude reference="ONx-V0-C3p"/>
+                                <exclude reference="i0A-rd-xLu"/>
+                                <exclude reference="DDc-VX-Van"/>
+                                <exclude reference="SX2-pC-RfD"/>
+                                <exclude reference="gam-ya-4mn"/>
+                                <exclude reference="5LS-EH-EwT"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="7c0-Hq-fGK"/>
+                                <include reference="ONx-V0-C3p"/>
+                                <include reference="i0A-rd-xLu"/>
+                                <include reference="DDc-VX-Van"/>
+                                <include reference="SX2-pC-RfD"/>
+                                <include reference="gam-ya-4mn"/>
+                                <include reference="5LS-EH-EwT"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="myActionButton" destination="hNQ-IZ-NAF" id="X6j-zc-o5X"/>
+                        <outlet property="myObjectView" destination="U6P-gl-C20" id="2ER-7a-S0e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="304.5" y="429"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="la2a_front_hq" width="1200" height="336"/>
+    </resources>
 </document>
