@@ -22,7 +22,8 @@ class ViewController: UIViewController {
         let aspect : CGFloat = CGFloat(view.image!.size.width) / view.image!.size.height
         
         let scaledHeight = view.frame.width / aspect
-        let frame = CGRectMake(view.frame.minX, view.center.y - scaledHeight/2, view.frame.width, scaledHeight)
+        let centerY = 0.5 * (view.bounds.minY + view.bounds.maxY)
+        let frame = CGRectMake(view.bounds.minX, centerY - scaledHeight, view.frame.width, scaledHeight)
         return frame
     }
     func toggleHighlight(view: UIView) {
@@ -31,10 +32,12 @@ class ViewController: UIViewController {
         if highlighted {  //make a new box
            // make a copy of the original image
             print("Making new view for hightlighting")
-            coverView = UIView(frame: getRealFrameForImage(view as! UIImageView))
+            //coverView = UIView(frame: getRealFrameForImage(view as! UIImageView))
+            let iv = view as! UIImageView
+            coverView = UIView(frame: getRealFrameForImage(iv))
             coverView.backgroundColor = UIColor.blueColor()
             coverView.alpha = 0.5
-            view.superview!.addSubview(coverView)
+            view.addSubview(coverView)
             view.setNeedsDisplay()
             coverView.setNeedsDisplay()
         } else {
